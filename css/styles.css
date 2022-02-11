@@ -1,0 +1,33 @@
+body {
+    display       : flex;
+    min-height    : 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+}
+
+nav {
+    /* width: 100%; */
+    display        : flex;
+    justify-content: center;
+    padding: 30px;
+    background-color: blue;
+}
+
+nav a {
+    margin: 0 80px 0 80px;
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding   : 20px;
+}
