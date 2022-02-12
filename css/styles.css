@@ -4,6 +4,12 @@ body {
     flex-direction: column;
     overflow: hidden;
     margin: 0;
+    background-color: #0D0A33;
+
+}
+
+nav, footer {
+    font-family: roboto, sans-serif;
 }
 
 header {
@@ -11,16 +17,23 @@ header {
 }
 
 nav {
-    /* width: 100%; */
     display        : flex;
     justify-content: center;
     padding: 30px;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 nav a {
     margin: 0 80px 0 80px;
     text-decoration: none;
+    color: white;
+    font-size: 18px;
+    border-bottom: 2.5px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #DE0078;
 }
 
 main {
@@ -30,4 +43,9 @@ main {
 footer {
     text-align: center;
     padding   : 20px;
+}
+
+footer p {
+    color: white;
+    font-size: 14px;
 }
