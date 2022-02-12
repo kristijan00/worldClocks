@@ -1,14 +1,15 @@
 body {
-    display       : flex;
-    min-height    : 100vh;
-    flex-direction: column;
-    overflow: hidden;
-    margin: 0;
+    display         : flex;
+    min-height      : 100vh;
+    flex-direction  : column;
+    overflow        : hidden;
+    margin          : 0;
     background-color: #0D0A33;
 
 }
 
-nav, footer {
+nav,
+footer {
     font-family: roboto, sans-serif;
 }
 
@@ -17,19 +18,19 @@ header {
 }
 
 nav {
-    display        : flex;
-    justify-content: center;
-    padding: 30px;
+    display            : flex;
+    justify-content    : center;
+    padding            : 30px;
     /* background-color: blue; */
 }
 
 nav a {
-    margin: 0 80px 0 80px;
+    margin         : 0 80px 0 80px;
     text-decoration: none;
-    color: white;
-    font-size: 18px;
-    border-bottom: 2.5px solid transparent;
-    transition: border-bottom 0.5s;
+    color          : white;
+    font-size      : 18px;
+    border-bottom  : 2.5px solid transparent;
+    transition     : border-bottom 0.5s;
 }
 
 nav a:hover {
@@ -37,7 +38,9 @@ nav a:hover {
 }
 
 main {
-    flex: 1;
+    display              : grid;
+    grid-template-columns: 1fr 1fr;
+    flex                 : 1;
 }
 
 footer {
@@ -46,6 +49,130 @@ footer {
 }
 
 footer p {
-    color: white;
+    color    : white;
     font-size: 14px;
+}
+
+.image {
+    background-image   : url(/images/zagreb2.jpg);
+    background-repeat  : no-repeat;
+    /* not needed if cover or fixed*/
+    background-size    : cover;
+    background-position: center center;
+}
+
+.clock {
+    width        : 270px;
+    height       : 270px;
+    background   : white;
+    border-radius: 50%;
+    border       : 2px solid black;
+    position     : relative;
+    left         : 25%;
+    top          : 25%;
+    font-family  : roboto, sans-serif;
+    font-weight  : bold;
+    font-size    : 16px;
+}
+
+.clock .number {
+    --rotation: 0;
+    position  : absolute;
+    width     : 100%;
+    height    : 100%;
+    text-align: center;
+    transform : rotate(var(--rotation));
+}
+
+.clock .hand {
+    --rotation             : 0;
+    position               : absolute;
+    bottom                 : 50%;
+    left                   : 50%;
+    transform              : translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    transform-origin       : bottom;
+    border-top-left-radius : 4px;
+    border-top-right-radius: 4px;
+    z-index                : 100;
+
+}
+
+.clock::after {
+    content         : '';
+    position        : absolute;
+    background-color: black;
+    z-index         : 101;
+    height          : 15px;
+    width           : 15px;
+    top             : 50%;
+    left            : 50%;
+    transform       : translate(-50%, -50%);
+    border-radius   : 50%;
+}
+
+.clock .hand.hour {
+    width           : 8px;
+    height          : 35%;
+    background-color: black;
+
+}
+
+.clock .hand.minute {
+    width           : 4px;
+    height          : 40%;
+    background-color: black;
+
+}
+
+.clock .hand.second {
+    width           : 1.5px;
+    height          : 45%;
+    background-color: #DE0078;
+
+}
+
+/* different numbers */
+
+.clock .number1 {
+    --rotation: 30deg;
+}
+
+.clock .number2 {
+    --rotation: 60deg;
+}
+
+.clock .number3 {
+    --rotation: 90deg;
+}
+
+.clock .number4 {
+    --rotation: 120deg;
+}
+
+.clock .number5 {
+    --rotation: 150deg;
+}
+
+.clock .number6 {
+    --rotation: 180deg;
+}
+
+.clock .number7 {
+    --rotation: 210deg;
+}
+
+.clock .number8 {
+    --rotation: 240deg;
+}
+
+.clock .number9 {
+    --rotation: 270deg;
+}
+
+.clock .number10 {
+    --rotation: 300deg;
+}
+
+.clock .number11 {
+    --rotation: 330deg;
 }
