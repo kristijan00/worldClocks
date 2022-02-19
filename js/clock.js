@@ -1,14 +1,14 @@
-setInterval (setClock, 1000);
+setInterval(setClock, 1000);
 
-const hourHand = document.querySelector('[hour-hand]');
-const minuteHand = document.querySelector('[minuted-hand]');
-const secondHand = document.querySelector('[second-hand]');
+let secondHand = document.querySelector('[second-hand]');
+let minuteHand = document.querySelector('[minute-hand]');
+let hourHand = document.querySelector('[hour-hand]');
 
 function setClock() {
     const currentDate = new Date();
     const seconds = currentDate.getSeconds() / 60;
     const minutes = (seconds + currentDate.getMinutes()) / 60;
-    const hours = (minutes + currentDate.getHours())     / 12;
+    const hours = (minutes + currentDate.getHours()) / 12;
 
     setRotation(secondHand, seconds);
     setRotation(minuteHand, minutes);
@@ -16,9 +16,9 @@ function setClock() {
 
 }
 
-function setRotation (element, rotationRatio) {
+function setRotation(element, rotationRatio) {
 
     element.style.setProperty('--rotation', rotationRatio * 360);
 }
 
-setClock()
+setClock();
