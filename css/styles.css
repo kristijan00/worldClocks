@@ -1,10 +1,10 @@
 body {
-    display         : flex;
-    min-height      : 100vh;
-    flex-direction  : column;
-    overflow        : hidden;
-    margin          : 0;
-    background-color: #0D0A33;
+    display            : flex;
+    min-height         : 100vh;
+    flex-direction     : column;
+    /* overflow        : hidden; */
+    margin             : 0;
+    background-color   : #0D0A33;
 
 }
 
@@ -43,6 +43,7 @@ main {
     flex                 : 1;
 }
 
+
 footer {
     text-align: center;
     padding   : 20px;
@@ -53,6 +54,7 @@ footer p {
     font-size: 14px;
 }
 
+/* Image styling */
 .image {
     background-image   : url(/images/zagreb2.jpg);
     background-repeat  : no-repeat;
@@ -61,6 +63,7 @@ footer p {
     background-position: center center;
 }
 
+/* Clock styling */
 .clock {
     width        : 270px;
     height       : 270px;
@@ -175,4 +178,22 @@ footer p {
 
 .clock .number11 {
     --rotation: 330deg;
+}
+
+/* Selection box */
+.custom-select {
+    display            : flex;
+    height             : auto;
+    width              : auto;
+    align-items        : center;
+    justify-content    : center;
+    /* background-color: #DE0078; */
+    ;
+}
+
+.custom-select select {
+    height      : 40px;
+    width       : auto;
+    margin-right: 80px;
+    /* display     : none; */
 }
