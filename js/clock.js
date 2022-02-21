@@ -44,4 +44,11 @@ async function loadTimezones() {
     return offset;
 }
 
+document.querySelectorAll('option').addEventListener('change', function (event) {
+
+    $("#custom-select").change(function(){
+        alert($(this).val())
+     }); 
+});
+
 setClock();

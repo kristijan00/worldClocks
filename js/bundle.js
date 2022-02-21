@@ -1,9 +1,12 @@
 (function () { function r(e, n, t) { function o(i, f) { if (!n[i]) { if (!e[i]) { var c = "function" == typeof require && require; if (!f && c) return c(i, !0); if (u) return u(i, !0); var a = new Error("Cannot find module '" + i + "'"); throw a.code = "MODULE_NOT_FOUND", a } var p = n[i] = { exports: {} }; e[i][0].call(p.exports, function (r) { var n = e[i][1][r]; return o(n || r) }, p, p.exports, r, e, n, t) } return n[i].exports } for (var u = "function" == typeof require && require, i = 0; i < t.length; i++)o(t[i]); return o } return r })()({
     1: [function (require, module, exports) {
+        //interval at which the setClock method runs i.e. 1 sec
         setInterval(setClock, 1000);
 
         //npm require
         var localTime = require("date-timezones");
+        //keep track of current selected city
+        let name = '';
 
         let secondHand = document.querySelector('[second-hand]');
         let minuteHand = document.querySelector('[minute-hand]');
@@ -11,10 +14,11 @@
 
         async function setClock() {
 
+            console.log(name);
             const currentDate = new Date();
 
             // getting the time from the string
-            const current = localTime('America/Chicago').toString().substring(16, 24);
+            const current = localTime(name).toString().substring(16, 24);
 
             //getting each part specifically, i.e. seconds, minutes, hours
             const seconds = current.substring(6, 8) / 60;
@@ -31,7 +35,17 @@
             element.style.setProperty('--rotation', rotationRatio * 360);
         }
 
-        setClock();
+        //get the current selection and update the clock
+        document.querySelector('select').addEventListener('change', function (event) {
+            $("#sel").change(function () {
+                name = $(this).val();
+                setClock(name);
+            });
+        });
+
+        //run the function at the very beginning
+        setClock(name);
+
     }, { "date-timezones": 2 }], 2: [function (require, module, exports) {
         // prefix: dtm
 
