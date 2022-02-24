@@ -56,7 +56,7 @@ footer p {
 
 /* Image styling */
 .image {
-    background-image   : url(/images/zagreb2.jpg);
+    background-image   : url(/images/zagreb.jpg);
     background-repeat  : no-repeat;
     /* not needed if cover or fixed*/
     background-size    : cover;

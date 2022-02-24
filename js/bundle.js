@@ -1,11 +1,15 @@
 (function () { function r(e, n, t) { function o(i, f) { if (!n[i]) { if (!e[i]) { var c = "function" == typeof require && require; if (!f && c) return c(i, !0); if (u) return u(i, !0); var a = new Error("Cannot find module '" + i + "'"); throw a.code = "MODULE_NOT_FOUND", a } var p = n[i] = { exports: {} }; e[i][0].call(p.exports, function (r) { var n = e[i][1][r]; return o(n || r) }, p, p.exports, r, e, n, t) } return n[i].exports } for (var u = "function" == typeof require && require, i = 0; i < t.length; i++)o(t[i]); return o } return r })()({
     1: [function (require, module, exports) {
 
-        document.getElementById('sel').addEventListener('change', function() {
+        //adding an event listener for the select box changes
+        document.getElementById('sel').addEventListener('change', function () {
             console.log('You selected: ', this.value);
             name = this.value;
+            //set the new time
             setClock(name);
-          });
+            //update the picture
+            changePicture();
+        });
 
         //interval at which the setClock method runs i.e. 1 sec
         setInterval(setClock, 1000);
@@ -20,6 +24,7 @@
         let hourHand = document.querySelector('[hour-hand]');
 
         async function setClock() {
+
 
             console.log(name);
             const currentDate = new Date();
@@ -40,6 +45,11 @@
 
         function setRotation(element, rotationRatio) {
             element.style.setProperty('--rotation', rotationRatio * 360);
+        }
+
+        //change the picture of each city
+        function changePicture (){
+            document.getElementById('img').style.backgroundImage="url(/images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
         }
 
 
