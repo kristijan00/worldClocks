@@ -1,6 +1,10 @@
 (function () { function r(e, n, t) { function o(i, f) { if (!n[i]) { if (!e[i]) { var c = "function" == typeof require && require; if (!f && c) return c(i, !0); if (u) return u(i, !0); var a = new Error("Cannot find module '" + i + "'"); throw a.code = "MODULE_NOT_FOUND", a } var p = n[i] = { exports: {} }; e[i][0].call(p.exports, function (r) { var n = e[i][1][r]; return o(n || r) }, p, p.exports, r, e, n, t) } return n[i].exports } for (var u = "function" == typeof require && require, i = 0; i < t.length; i++)o(t[i]); return o } return r })()({
     1: [function (require, module, exports) {
 
+        //interval at which the setClock method runs i.e. 1 sec
+        setInterval(setClock, 1000);
+
+        let currentClock = 'analogue';
         //adding an event listener for the select box changes
         document.getElementById('sel').addEventListener('change', function () {
             console.log('You selected: ', this.value);
@@ -11,36 +15,67 @@
             changePicture();
         });
 
-        //interval at which the setClock method runs i.e. 1 sec
-        setInterval(setClock, 1000);
+        //event listeners for radio buttons
+        document.getElementById('clockAn').addEventListener('change', function () {
+            currentClock = this.value;
+        });
+
+        document.getElementById('clockDi').addEventListener('change', function () {
+            currentClock = this.value;
+        });
+
 
         //npm require
         var localTime = require("date-timezones");
         //keep track of current selected city
         let name = '';
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
 
         let secondHand = document.querySelector('[second-hand]');
         let minuteHand = document.querySelector('[minute-hand]');
         let hourHand = document.querySelector('[hour-hand]');
 
-        async function setClock() {
+        function setClock() {
+
+            if (currentClock === 'analogue') {
+
+                document.getElementById("clck").style.display = "flex";
+                document.getElementById("digClck").style.display = "none";
+
+                console.log(name);
+                // getting the time from the string
+                const current = localTime(name).toString().substring(16, 24);
+
+                //getting each part specifically, i.e. seconds, minutes, hours
+                seconds = current.substring(6, 8) / 60;
+                minutes = current.substring(3, 5) / 60;
+                hours = current.substring(0, 2) / 12;
 
 
-            console.log(name);
-            const currentDate = new Date();
+                setRotation(secondHand, seconds);
+                setRotation(minuteHand, minutes);
+                setRotation(hourHand, hours);
 
-            // getting the time from the string
-            const current = localTime(name).toString().substring(16, 24);
+            } else {
 
-            //getting each part specifically, i.e. seconds, minutes, hours
-            const seconds = current.substring(6, 8) / 60;
-            const minutes = current.substring(3, 5) / 60;
-            const hours = current.substring(0, 2) / 12;
+                document.getElementById("clck").style.display = "none";
+                document.getElementById("digClck").style.display = "flex";
 
-            setRotation(secondHand, seconds);
-            setRotation(minuteHand, minutes);
-            setRotation(hourHand, hours);
+                console.log(name);
+                // getting the time from the string
+                const current = localTime(name).toString().substring(16, 24);
 
+                //getting each part specifically, i.e. seconds, minutes, hours
+                seconds = current.substring(6, 8);
+                minutes = current.substring(3, 5);
+                hours = current.substring(0, 2);
+
+                let currentTimeString = hours + ":" + minutes + ":" + seconds;
+                document.getElementById("digClck").innerText = currentTimeString;
+
+            }
         }
 
         function setRotation(element, rotationRatio) {
@@ -48,10 +83,9 @@
         }
 
         //change the picture of each city
-        function changePicture (){
-            document.getElementById('img').style.backgroundImage="url(/images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
+        function changePicture() {
+            document.getElementById('img').style.backgroundImage = "url(/images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
         }
-
 
         //run the function at the very beginning
         setClock(name);
