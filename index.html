@@ -13,109 +13,118 @@
 <body>
     <header>
         <nav>
-            <a href="">Home</a>
-            <a href="">Cities</a>
+            <a href="#">Home</a>
+            <a href="#cit">Cities</a>
         </nav>
 
     </header>
     <main>
-        <div class="clocks">
-            <div class="clock" id="clck">
-                <div class="hand hour" hour-hand></div>
-                <div class="hand minute" minute-hand></div>
-                <div class="hand second" second-hand></div>
-                <div class="number number1">1</div>
-                <div class="number number2">2</div>
-                <div class="number number3">3</div>
-                <div class="number number4">4</div>
-                <div class="number number5">5</div>
-                <div class="number number6">6</div>
-                <div class="number number7">7</div>
-                <div class="number number8">8</div>
-                <div class="number number9">9</div>
-                <div class="number number10">10</div>
-                <div class="number number11">11</div>
-                <div class="number number12">12</div>
+        <div class="homeWrapper">
+            <div class="clocks">
+                <div class="clock" id="clck">
+                    <div class="hand hour" hour-hand></div>
+                    <div class="hand minute" minute-hand></div>
+                    <div class="hand second" second-hand></div>
+                    <div class="number number1">1</div>
+                    <div class="number number2">2</div>
+                    <div class="number number3">3</div>
+                    <div class="number number4">4</div>
+                    <div class="number number5">5</div>
+                    <div class="number number6">6</div>
+                    <div class="number number7">7</div>
+                    <div class="number number8">8</div>
+                    <div class="number number9">9</div>
+                    <div class="number number10">10</div>
+                    <div class="number number11">11</div>
+                    <div class="number number12">12</div>
+                </div>
+
+                <div class="digitalClock" id="digClck"></div>
             </div>
 
-            <div class="digitalClock" id="digClck"></div>
-        </div>
+            <div class="image" id="img">
 
-        <div class="image" id="img">
-
-        </div>
-
-        <div class="radio">
-            <div>
-                <input type="radio" id="clockAn" name="clock" value="analogue" checked>
-                <label id="ang" for="analogue">Analogue</label>
             </div>
 
-            <div>
-                <input type="radio" id="clockDi" name="clock" value="digital">
-                <label id="dig" for="digital">Digital</label>
+            <div class="radio">
+                <div>
+                    <input type="radio" id="clockAn" name="clock" value="analogue" checked>
+                    <label id="ang" for="analogue">Analogue</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="clockDi" name="clock" value="digital">
+                    <label id="dig" for="digital">Digital</label>
+                </div>
+            </div>
+
+            <div class="custom-select">
+                <select id="sel">
+                    <option value="Europe/Zagreb">Zagreb</option>
+                    <option value="Europe/London">London</option>
+                    <option value="America/New_York">New York</option>
+                    <option value="Asia/Tokyo">Tokyo</option>
+                    <option value="Europe/Paris">Paris</option>
+                    <option value="Africa/Lagos">Lagos</option>
+                    <option value="Asia/Kuala_Lumpur">Kuala Lumpur</option>
+                    <option value="Europe/Moscow">Moscow</option>
+                    <option value="America/Chicago">Chicago</option>
+                    <option value="America/Los_Angeles">Los Angeles</option>
+
+                    <option value="Europe/Lisbon">Lisbon</option>
+                    <option value="Europe/Stockholm">Stockholm</option>
+                    <option value="America/Detroit">Detroit</option>
+                    <option value="Asia/Delhi">Delhi</option>
+                    <option value="Europe/Amsterdam">Amsterdam</option>
+                    <option value="Africa/Cairo">Cairo</option>
+                    <option value="Asia/Beijing">Beijing</option>
+                    <option value="Europe/Oslo">Oslo</option>
+                    <option value="America/Houston">Houston</option>
+                    <option value="America/Dallas">Dallas</option>
+
+                    <option value="Europe/Madrid">Madrid</option>
+                    <option value="Europe/Barcelona">Barcelona</option>
+                    <option value="America/Miami">Miami</option>
+                    <option value="Asia/Singapore">Singapore</option>
+                    <option value="Asia/Istanbul">Istanbul</option>
+                    <option value="Africa/Johannesburg">Johannesburg</option>
+                    <option value="Asia/Hong_Kong">Hong Kong</option>
+                    <option value="Europe/Lyon">Lyon</option>
+                    <option value="America/Toronto">Toronto</option>
+                    <option value="America/Atlanta">Atlanta</option>
+
+                    <option value="Europe/Ljubljana">Ljubljana</option>
+                    <option value="Europe/Belgrade">Belgrade</option>
+                    <option value="America/Ottawa">Ottawa</option>
+                    <option value="Asia/Kabul">Kabul</option>
+                    <option value="Europe/Bern">Bern</option>
+                    <option value="Africa/Algiers">Algiers</option>
+                    <option value="Asia/Ankara">Ankara</option>
+                    <option value="Europe/Bucharest">Bucharest</option>
+                    <option value="America/Nassau">Nassau</option>
+                    <option value="America/Havana">Havana</option>
+
+                    <option value="Europe/Riga">Riga</option>
+                    <option value="Europe/Vilnius">Vilnius</option>
+                    <option value="America/Buenos_Aires">Buenos Aires</option>
+                    <option value="Asia/Baku">Baku</option>
+                    <option value="Europe/Warsaw">Warsaw</option>
+                    <option value="Africa/Nairobi">Nairobi</option>
+                    <option value="Asia/Nicosia">Nicosia</option>
+                    <option value="Europe/Rome">Rome</option>
+                    <option value="America/Santiago">Santiago</option>
+                    <option value="America/Mexico_City">Mexico City</option>
+                </select>
             </div>
         </div>
 
-        <div class="custom-select">
-            <select id="sel">
-                <option value="Europe/Zagreb">Zagreb</option>
-                <option value="Europe/London">London</option>
-                <option value="America/New_York">New York</option>
-                <option value="Asia/Tokyo">Tokyo</option>
-                <option value="Europe/Paris">Paris</option>
-                <option value="Africa/Lagos">Lagos</option>
-                <option value="Asia/Kuala_Lumpur">Kuala Lumpur</option>
-                <option value="Europe/Moscow">Moscow</option>
-                <option value="America/Chicago">Chicago</option>
-                <option value="America/Los_Angeles">Los Angeles</option>
-
-                <option value="Europe/Lisbon">Lisbon</option>
-                <option value="Europe/Stockholm">Stockholm</option>
-                <option value="America/Detroit">Detroit</option>
-                <option value="Asia/Delhi">Delhi</option>
-                <option value="Europe/Amsterdam">Amsterdam</option>
-                <option value="Africa/Cairo">Cairo</option>
-                <option value="Asia/Beijing">Beijing</option>
-                <option value="Europe/Oslo">Oslo</option>
-                <option value="America/Houston">Houston</option>
-                <option value="America/Dallas">Dallas</option>
-
-                <option value="Europe/Madrid">Madrid</option>
-                <option value="Europe/Barcelona">Barcelona</option>
-                <option value="America/Miami">Miami</option>
-                <option value="Asia/Singapore">Singapore</option>
-                <option value="Asia/Istanbul">Istanbul</option>
-                <option value="Africa/Johannesburg">Johannesburg</option>
-                <option value="Asia/Hong_Kong">Hong Kong</option>
-                <option value="Europe/Lyon">Lyon</option>
-                <option value="America/Toronto">Toronto</option>
-                <option value="America/Atlanta">Atlanta</option>
-
-                <option value="Europe/Ljubljana">Ljubljana</option>
-                <option value="Europe/Belgrade">Belgrade</option>
-                <option value="America/Ottawa">Ottawa</option>
-                <option value="Asia/Kabul">Kabul</option>
-                <option value="Europe/Bern">Bern</option>
-                <option value="Africa/Algiers">Algiers</option>
-                <option value="Asia/Ankara">Ankara</option>
-                <option value="Europe/Bucharest">Bucharest</option>
-                <option value="America/Nassau">Nassau</option>
-                <option value="America/Havana">Havana</option>
-
-                <option value="Europe/Riga">Riga</option>
-                <option value="Europe/Vilnius">Vilnius</option>
-                <option value="America/Buenos_Aires">Buenos Aires</option>
-                <option value="Asia/Baku">Baku</option>
-                <option value="Europe/Warsaw">Warsaw</option>
-                <option value="Africa/Nairobi">Nairobi</option>
-                <option value="Asia/Nicosia">Nicosia</option>
-                <option value="Europe/Rome">Rome</option>
-                <option value="America/Santiago">Santiago</option>
-                <option value="America/Mexico_City">Mexico City</option>
-            </select>
+        <div class="wrapper">
+            <h1 id="cit">List of cities</h1>
+            <input type="text" id="textBox">
+            <input type="button" id="btn" value="Add">
+            <div class="cities">
+            </div>
         </div>
-
 
     </main>
     <footer>
@@ -124,7 +133,6 @@
 
     </footer>
     <script defer src="/js/bundle.js"></script>
-
 </body>
 
 

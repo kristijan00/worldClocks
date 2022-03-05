@@ -1,19 +1,29 @@
 (function () { function r(e, n, t) { function o(i, f) { if (!n[i]) { if (!e[i]) { var c = "function" == typeof require && require; if (!f && c) return c(i, !0); if (u) return u(i, !0); var a = new Error("Cannot find module '" + i + "'"); throw a.code = "MODULE_NOT_FOUND", a } var p = n[i] = { exports: {} }; e[i][0].call(p.exports, function (r) { var n = e[i][1][r]; return o(n || r) }, p, p.exports, r, e, n, t) } return n[i].exports } for (var u = "function" == typeof require && require, i = 0; i < t.length; i++)o(t[i]); return o } return r })()({
     1: [function (require, module, exports) {
 
+        //npm require
+        var localTime = require("date-timezones");
+
         //interval at which the setClock method runs i.e. 1 sec
         setInterval(setClock, 1000);
 
+        let count = 1;
         let currentClock = 'analogue';
         //adding an event listener for the select box changes
         document.getElementById('sel').addEventListener('change', function () {
-            console.log('You selected: ', this.value);
             name = this.value;
             //set the new time
             setClock(name);
             //update the picture
             changePicture();
         });
+
+        //append all the cities to the list
+        if ($('.cities').innerHTML === undefined) {
+            Array.from(document.querySelector("#sel").options).forEach(function (option_element) {
+                $('.cities').append('#' + count++ + ' ' + option_element.text + '<br><br>');
+            });
+        }
 
         //event listeners for radio buttons
         document.getElementById('clockAn').addEventListener('change', function () {
@@ -24,9 +34,42 @@
             currentClock = this.value;
         });
 
+        //button and text box event listeners
+        const textBox = document.getElementById('textBox');
+        let check = true;
+        document.getElementById('btn').addEventListener('click', function () {
+            if (textBox.value.length === 0) {
+                alert('Text Box is empty');
+            } else {
+                try {
+                    localTime(textBox.value);
+                } catch (error) {
+                    alert("Does not exist")
+                    return;
+                }
 
-        //npm require
-        var localTime = require("date-timezones");
+                Array.from(document.querySelector("#sel").options).some(function (option_element) {
+                    if (option_element.text === textBox.value.split('/')[length + 1]) {
+                        alert("City is already on the list");
+                        check = false;
+                        return true;
+                    }
+                });
+
+                if (check === true) {
+                    $('.cities').append('#' + count++ + ' ' + textBox.value.split('/')[length + 1] + '<br><br>');
+
+                    const option = document.createElement("option");
+                    option.setAttribute('value', textBox.value);
+                    option.innerHTML = `
+            <option> ${textBox.value.split('/')[length + 1]}
+          </option>
+        `;
+                    document.querySelector('#sel').append(option);
+                }
+            }
+        });
+
         //keep track of current selected city
         let name = '';
         let seconds = 0;
@@ -44,15 +87,13 @@
                 document.getElementById("clck").style.display = "flex";
                 document.getElementById("digClck").style.display = "none";
 
-                console.log(name);
                 // getting the time from the string
                 const current = localTime(name).toString().substring(16, 24);
 
                 //getting each part specifically, i.e. seconds, minutes, hours
-                seconds = current.substring(6, 8) / 60;
-                minutes = current.substring(3, 5) / 60;
-                hours = current.substring(0, 2) / 12;
-
+                seconds = Math.floor(current.substring(6, 8)) / 60;
+                minutes = (seconds + Math.floor(current.substring(3, 5))) / 60;
+                hours = (minutes + Math.floor(current.substring(0, 2))) / 12;
 
                 setRotation(secondHand, seconds);
                 setRotation(minuteHand, minutes);
@@ -63,7 +104,6 @@
                 document.getElementById("clck").style.display = "none";
                 document.getElementById("digClck").style.display = "flex";
 
-                console.log(name);
                 // getting the time from the string
                 const current = localTime(name).toString().substring(16, 24);
 
@@ -1668,6 +1708,7 @@
                         moment.updateOffset(this, keepTime);
                     } else {
                         logError("Moment Timezone has no data for " + name + ". See http://momentjs.com/timezone/docs/#/data-loading/.");
+                        throw "fail";
                     }
                     return this;
                 }
