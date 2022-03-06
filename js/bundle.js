@@ -8,6 +8,7 @@
         setInterval(setClock, 1000);
 
         let count = 1;
+        let cityCount = 0;
         let currentClock = 'analogue';
         //adding an event listener for the select box changes
         document.getElementById('sel').addEventListener('change', function () {
@@ -17,13 +18,6 @@
             //update the picture
             changePicture();
         });
-
-        //append all the cities to the list
-        if ($('.cities').innerHTML === undefined) {
-            Array.from(document.querySelector("#sel").options).forEach(function (option_element) {
-                $('.cities').append('#' + count++ + ' ' + option_element.text + '<br><br>');
-            });
-        }
 
         //event listeners for radio buttons
         document.getElementById('clockAn').addEventListener('change', function () {
@@ -59,6 +53,8 @@
 
                 if (check === true) {
                     $('.cities').append('#' + count++ + ' ' + textBox.value.split('/')[length + 1].charAt(0).toUpperCase() + textBox.value.split('/')[length + 1].slice(1) + '<br><br>');
+                    //save to local storage
+                    window.localStorage.setItem('city' + cityCount++, textBox.value);
 
                     const option = document.createElement("option");
                     option.setAttribute('value', textBox.value);
@@ -67,9 +63,35 @@
           </option>
         `;
                     document.querySelector('#sel').append(option);
+                    textBox.value = '';
                 }
             }
         });
+
+         //append all the cities to the list
+         if ($('.cities').innerHTML === undefined) {
+            Array.from(document.querySelector("#sel").options).forEach(function (option_element) {
+                $('.cities').append('#' + count++ + ' ' + option_element.text + '<br><br>');
+            });
+            retrieveFromLocal();
+        }
+
+        //retrieving saved cities from local storage
+        function retrieveFromLocal() {
+
+            while (window.localStorage.getItem("city" + cityCount) != null) {
+                var cityName = window.localStorage.getItem("city" + cityCount++);
+                $('.cities').append('#' + count++ + ' ' + cityName.split('/')[length + 1].charAt(0).toUpperCase() + cityName.split('/')[length + 1].slice(1) + '<br><br>');
+
+                const option = document.createElement("option");
+                option.setAttribute('value', cityName);
+                option.innerHTML = `
+                    <option> ${cityName.split('/')[length + 1].charAt(0).toUpperCase() + cityName.split('/')[length + 1].slice(1)}
+                  </option>
+                `;
+                document.querySelector('#sel').append(option);
+            }
+        }
 
         //keep track of current selected city
         let name = '';
@@ -130,6 +152,7 @@
 
         //run the function at the very beginning
         setClock(name);
+        // retrieveFromLocal(count);
 
     }, { "date-timezones": 2 }], 2: [function (require, module, exports) {
         // prefix: dtm
