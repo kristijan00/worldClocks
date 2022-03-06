@@ -125,7 +125,7 @@
 
         //change the picture of each city
         function changePicture() {
-            document.getElementById('img').style.backgroundImage = "url(/images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
+            document.getElementById('img').style.backgroundImage = "url(./images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
         }
 
         //run the function at the very beginning
