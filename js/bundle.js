@@ -42,14 +42,15 @@
                 alert('Text Box is empty');
             } else {
                 try {
-                    localTime(textBox.value);
+                    // localTime(textBox.value);
+                    console.log(localTime(textBox.value));
                 } catch (error) {
                     alert("Does not exist")
                     return;
                 }
 
                 Array.from(document.querySelector("#sel").options).some(function (option_element) {
-                    if (option_element.text === textBox.value.split('/')[length + 1]) {
+                    if (option_element.text.toLowerCase() === textBox.value.split('/')[length + 1].toLowerCase()) {
                         alert("City is already on the list");
                         check = false;
                         return true;
@@ -57,12 +58,12 @@
                 });
 
                 if (check === true) {
-                    $('.cities').append('#' + count++ + ' ' + textBox.value.split('/')[length + 1] + '<br><br>');
+                    $('.cities').append('#' + count++ + ' ' + textBox.value.split('/')[length + 1].charAt(0).toUpperCase() + textBox.value.split('/')[length + 1].slice(1) + '<br><br>');
 
                     const option = document.createElement("option");
                     option.setAttribute('value', textBox.value);
                     option.innerHTML = `
-            <option> ${textBox.value.split('/')[length + 1]}
+            <option> ${textBox.value.split('/')[length + 1].charAt(0).toUpperCase() + textBox.value.split('/')[length + 1].slice(1)}
           </option>
         `;
                     document.querySelector('#sel').append(option);
