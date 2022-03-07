@@ -98,7 +98,7 @@
         }
 
         //keep track of current selected city
-        let name = '';
+        let name = 'Europe/Zagreb';
         let seconds = 0;
         let minutes = 0;
         let hours = 0;
@@ -152,12 +152,12 @@
         //change the picture of each city
         function changePicture() {
             console.log(name.substring(name.indexOf('/') + 1));
-            document.getElementById('img').style.backgroundImage = "url(/images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
+            document.getElementById('img').style.backgroundImage = "url(./images/" + name.substring(name.indexOf('/') + 1) + ".jpg)";
         }
 
         //run the function at the very beginning
         setClock(name);
-        // retrieveFromLocal(count);
+        changePicture(name);
 
     }, { "date-timezones": 2 }], 2: [function (require, module, exports) {
         // prefix: dtm

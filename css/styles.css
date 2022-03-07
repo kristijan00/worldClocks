@@ -129,7 +129,7 @@ footer p {
 
 /* Image styling */
 .image {
-    background-image   : url(/images/zagreb.jpg);
+    /* background-image   : url(/images/zagreb.jpg); */
     background-repeat  : no-repeat;
     background-size    : cover;
     background-position: center center;
