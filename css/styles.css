@@ -17,7 +17,7 @@
 
     nav ul li a {
         padding: 0.5rem 1rem;
-        margin : 0 3rem 0 3rem;
+        margin : 0 2rem 0 2rem;
     }
 
     .image {
@@ -29,15 +29,15 @@
 
     .clocks {
         margin-bottom: 10rem;
-        margin-left: -4rem;
+        margin-left: -6rem;
     }
 
     .custom-select {
-        margin-left: 0;
+        margin-left: -3rem;
     }
 
     .radio {
-        margin-left: -6rem;
+        margin-left: -8rem;
     }
 
 }
