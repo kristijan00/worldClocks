@@ -46,7 +46,7 @@
                 }
 
                 Array.from(document.querySelector("#sel").options).some(function (option_element) {
-                    if (option_element.text.toLowerCase() === textBox.value.split('/')[length + 1].toLowerCase()) {
+                    if (option_element.value.toLowerCase() === textBox.value.toLowerCase()) {
                         alert("City is already on the list");
                         check = false;
                         textBox.value = '';
