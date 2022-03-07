@@ -46,7 +46,7 @@ main {
 }
 
 .homeWrapper {
-    margin-top: 5rem;
+    margin-top           : 5rem;
     display              : grid;
     grid-template-columns: 1fr 1fr;
     flex                 : 1;
@@ -69,7 +69,6 @@ footer p {
     display            : flex;
     align-items        : center;
     justify-content    : space-evenly;
-    /* background-color: black; */
     margin-top         : 100px;
     margin-right       : 20px;
     color              : white;
@@ -79,7 +78,6 @@ footer p {
 .image {
     background-image   : url(/images/zagreb.jpg);
     background-repeat  : no-repeat;
-    /* not needed if cover or fixed*/
     background-size    : cover;
     background-position: center center;
     height             : 350px;
@@ -107,8 +105,8 @@ footer p {
 .digitalClock {
     width           : 320px;
     height          : 200px;
-    background-color: white;
-    color           : black;
+    background-color: #DE0078;
+    color           : white;
     text-align      : center;
     justify-content : center;
     align-items     : center;
@@ -233,15 +231,15 @@ footer p {
     width              : auto;
     align-items        : center;
     justify-content    : center;
-    /* background-color: #DE0078; */
 }
 
 .custom-select select {
-    height      : 40px;
-    width       : auto;
-    margin-top  : 100px;
-    margin-right: 80px;
-
+    height       : 40px;
+    width        : auto;
+    margin-top   : 100px;
+    border-radius: 10px;
+    margin-right : 80px;
+    cursor       : pointer;
 }
 
 .wrapper {
@@ -252,35 +250,45 @@ footer p {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size          : 2.5rem;
     height             : 2rem;
     text-align         : center;
     width              : 100%;
     margin-top         : 10rem;
     color              : #DE0078;
-    /* background-color: white; */
 }
 
 #textBox {
-    height: 3em;
-    z-index: 10;
-    margin-top: 2rem;
+    height       : 3em;
+    z-index      : 10;
+    margin-top   : 2rem;
+    border-radius: 10px;
 }
 
 #btn {
-    margin-top: 2rem;
-    width: auto;
-    height: 2rem;
-    text-align: center;
-    cursor: pointer;
+    margin-top   : 2rem;
+    width        : auto;
+    height       : 2rem;
+    text-align   : center;
+    cursor       : pointer;
+    border-radius: 10px;
+    transition   : 1s;
+}
+
+#btn:hover {
+    background-color: #DE0078;
+    color           : white;
 }
 
 .cities {
-    display            : flex;
-    width              : 300px;
-    height             : auto;
-    background-color   : white;
-    margin-top         : 2rem;
-    text-align         : center;
-    justify-content    : center;
+    display         : flex;
+    width           : 300px;
+    height          : auto;
+    background-color: white;
+    margin-top      : 2rem;
+    text-align      : center;
+    justify-content : center;
+    padding-top     : 2rem;
+    padding-bottom  : 2rem;
+    border-radius   : 10px;
 }
