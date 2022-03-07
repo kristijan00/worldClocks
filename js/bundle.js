@@ -32,14 +32,16 @@
         const textBox = document.getElementById('textBox');
         let check = true;
         document.getElementById('btn').addEventListener('click', function () {
+            check = true;
+
             if (textBox.value.length === 0) {
                 alert('Text Box is empty');
             } else {
                 try {
-                    // localTime(textBox.value);
                     console.log(localTime(textBox.value));
                 } catch (error) {
                     alert("Does not exist")
+                    textBox.value = '';
                     return;
                 }
 
@@ -47,8 +49,10 @@
                     if (option_element.text.toLowerCase() === textBox.value.split('/')[length + 1].toLowerCase()) {
                         alert("City is already on the list");
                         check = false;
-                        return true;
+                        textBox.value = '';
+                        return;
                     }
+
                 });
 
                 if (check === true) {
@@ -68,8 +72,8 @@
             }
         });
 
-         //append all the cities to the list
-         if ($('.cities').innerHTML === undefined) {
+        //append all the cities to the list
+        if ($('.cities').innerHTML === undefined) {
             Array.from(document.querySelector("#sel").options).forEach(function (option_element) {
                 $('.cities').append('#' + count++ + ' ' + option_element.text + '<br><br>');
             });
