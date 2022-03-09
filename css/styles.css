@@ -94,12 +94,14 @@ nav a {
     color          : white;
     font-size      : 18px;
     border-bottom  : 2.5px solid transparent;
-    transition     : border-bottom 0.5s;
+    transition     : border-bottom 0.5s, opacity 1s;
+    opacity: 0.5;
 }
 
 nav a:hover,
 nav a.active {
     border-bottom: 2px solid #DE0078;
+    opacity: 1;
 }
 
 main {
