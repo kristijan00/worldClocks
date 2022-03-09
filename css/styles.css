@@ -22,18 +22,18 @@
 
     .image {
         height: auto;
-        width: 100%;
+        max-width: 80%;
         margin-right: 0;
         margin-left: 0;
     }
 
     .clocks {
         margin-bottom: 10rem;
-        margin-left: -9rem;
+        margin-left: -8rem;
     }
 
     .custom-select {
-        margin-left: -5rem;
+        margin-left: -4.5rem;
     }
 
     .radio {
